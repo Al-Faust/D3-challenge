@@ -3,6 +3,7 @@
 Base Project Code
 -------------------------------------------------------
  */
+
 var svgWidth = 850;
 var svgHeight = 500;
 
@@ -43,7 +44,7 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
         .range([0, width]);
     
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(newsData, d => d.healthcare) * .8, d3.max(newsData, d => d.healthcare)* 1.2])
+        .domain([d3.min(newsData, d => d.healthcare) * .8, d3.max(newsData, d => d.healthcare) * 1.2])
         .range([height, 0]);
 
     //axis functions
@@ -100,8 +101,8 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
 Bonus Code
 -------------------------------------------------------
 currently doesn't work
-
-
+*/
+/* 
 //use activity 3.12 from week 16
 var svgWidth = 850;
 var svgHeight = 500;
@@ -133,9 +134,7 @@ var chosenY = "healthcare"
 //x scale based on chosenX
 function xScale(newsData, chosenX) {
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(newsData, d => d[chosenX]) * 0.8,
-        d3.max(newsData, d => d[chosenX]) * 1.2
-        ])
+        .domain([d3.min(newsData, d => d.chosenX) * 0.8, d3.max(newsData, d => d.chosenX) * 1.2])
         .range([0, width]);
 
     return xLinearScale;
@@ -144,10 +143,8 @@ function xScale(newsData, chosenX) {
 //y scale based on chosenY
 function yScale(newsData, chosenY) {
     var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(newsData, d => d[chosenY]) * 0.8,
-        d3.max(newsData, d => d[chosenY]) * 1.2
-        ])
-        .range([width, 0]);
+        .domain([d3.min(newsData, d => d.chosenY) * 0.8, d3.max(newsData, d => d.chosenY) * 1.2])
+        .range([height, 0]);
 
     return yLinearScale;
 }
@@ -331,8 +328,8 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
     //y labels
     var healthlabel = labelGroup.append("text")
         .text("Healthcare (%)")
-        .attr("x", (height / 2))
-        .attr("y", (margin.left - 60))
+        .attr("x", 0 - (height / 2))
+        .attr("y", 0 - (margin.left - 60))
         .attr("transform", "rotate(-90)")
         //used to get on click to work
         .classed("active", true)
@@ -340,8 +337,8 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
 
     var smklabel = labelGroup.append("text")
         .text("Smokers (%)")
-        .attr("x", (height / 2))
-        .attr("y", (margin.left - 40))
+        .attr("x", 0 - (height / 2))
+        .attr("y", 0 - (margin.left - 40))
         .attr("transform", "rotate(-90)")
         //used to get on click to work
         .classed("inactive", true)
@@ -349,8 +346,8 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
 
     var obelabel = labelGroup.append("text")
         .text("Obesity (%)")
-        .attr("x", (height / 2))
-        .attr("y", (margin.left - 20))
+        .attr("x", 0 - (height / 2))
+        .attr("y", 0 - (margin.left - 20))
         .attr("transform", "rotate(-90)")
         //used to get on click to work
         .classed("inactive", true)
@@ -457,5 +454,4 @@ d3.csv("assets/data/data.csv").then(function(newsData) {
     })
 
 });
-
-*/
+ */
